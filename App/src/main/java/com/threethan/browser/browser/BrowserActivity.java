@@ -44,7 +44,7 @@ public class BrowserActivity extends BoundActivity {
 
         bind();
 
-        Log.v("Lightning Browser", "Starting Browser Activity");
+        Log.v("Gecko TV Browser", "Starting Browser Activity");
 
         setContentView(R.layout.activity_browser);
         getWindow().setStatusBarColor(Color.parseColor("#11181f"));
@@ -75,7 +75,7 @@ public class BrowserActivity extends BoundActivity {
             }
         }
         if (tabId == null) tabId = BrowserService.TAB_PREFIX+"ext::"+currentUrl;
-        Log.v("Lightning Browser", "... with url " + currentUrl + (isTab ? ", is a tab":", not a tab") + ", assigned id "+tabId);
+        Log.v("Gecko TV Browser", "... with url " + currentUrl + (isTab ? ", is a tab":", not a tab") + ", assigned id "+tabId);
 
 
         // Back/Forward Buttons

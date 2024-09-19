@@ -6,14 +6,14 @@ import android.os.Build;
 import com.threethan.browser.helper.DataStoreEditor;
 
 public class BrowserUpdater extends AppUpdater {
-    public static final String GIT_REPO_BROWSER = "threethan/LightningBrowser";
+    public static final String GIT_REPO_BROWSER = "Ray-D-Song/GeckoTVBrowser";
 
     // URL Constants
     @Override
     protected String getAppDownloadName() {
         // Name of apk on github, not including ".apk"
         return  (Build.SUPPORTED_64_BIT_ABIS.length > 0)
-                ? "LightningBrowser_Arm64" : "LightningBrowser";
+                ? "GeckoTVBrowser_Arm64" : "GeckoTVBrowser";
     }
 
     @Override
@@ -23,7 +23,7 @@ public class BrowserUpdater extends AppUpdater {
 
     @Override
     protected String getAppDisplayName() {
-        return "Lightning Browser";
+        return "Gecko TV Browser";
     }
 
     @Override

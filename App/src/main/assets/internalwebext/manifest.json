@@ -3,7 +3,7 @@
  "name": "Lightning Launcher Fixes",
  "author": "threethan",
  "version": "1",
- "description": "Various fixes/improvements for websites in Lightning Browser, do not remove!",
+ "description": "Various fixes/improvements for websites in Gecko TV Browser, do not remove!",
  "content_scripts": [
   {
    "matches": [

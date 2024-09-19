@@ -1,4 +1,4 @@
-# LightningBrowser
+# GeckoTVBrowser
 A powerful Gecko-based browser for Android TV and VR. 
 
 *(Previously part of [LightningLauncher](https://github.com/threethan/LightningLauncher))*
