@@ -31,6 +31,7 @@ public class BrowserActivity extends BoundActivity {
     View forward;
     View background;
     View loading;
+    View fullScreen;
     View bookmarkAdd;
     View bookmarkRem;
     protected final BookmarkManager bookmarkManager = new BookmarkManager(this);
@@ -118,6 +119,11 @@ public class BrowserActivity extends BoundActivity {
         View exit = findViewById(R.id.exit);
         exit.setOnClickListener((View) -> finish());
 
+        // Fullscreen Button
+        fullScreen = findViewById(R.id.fullScreen);
+        fullScreen.setOnClickListener((view) -> {
+            hideTopBar();
+        });
         // Bookmark Button
         bookmarkAdd = findViewById(R.id.addBookmark);
         bookmarkRem = findViewById(R.id.removeBookmark);

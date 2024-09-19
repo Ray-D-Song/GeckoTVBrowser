@@ -114,6 +114,20 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/fullScreen"
+            android:layout_width="39dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bkg_button_web"
+            android:src="@drawable/web_fullscreen"
+            android:tooltipText="@string/fullscreen"
+            android:visibility="visible"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageButton
             android:id="@+id/addBookmark"
             android:layout_width="39dp"
             android:layout_height="match_parent"

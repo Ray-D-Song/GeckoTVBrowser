@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Display;
 import android.view.DragEvent;
 import android.view.KeyEvent;
@@ -24,6 +25,8 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+
+import com.threethan.browser.R;
 
 import org.mozilla.geckoview.GeckoView;
 import org.mozilla.geckoview.PanZoomController;
@@ -51,6 +54,8 @@ public class CursorLayout extends LinearLayout {
     public View targetView;
     private final Runnable cursorUpdateRunnable = new Runnable() {
         public void run() {
+            findViewById(R.id.topBar).setVisibility(View.VISIBLE);
+            findViewById(R.id.topBarEdit).setVisibility(View.GONE);
             long currentTimeMillis = System.currentTimeMillis();
             float deltaTime = (currentTimeMillis - lastCursorUpdate)/1000f;
             lastCursorUpdate = currentTimeMillis;
