@@ -30,13 +30,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build --stacktrace --info
 
-      - name: Rename APK File
-        run: mv App/build/outputs/apk/release/App-release-unsigned.apk App/build/outputs/apk/release/GeckoTVBrowser.apk
-
       - name: Upload Release Asset
         uses: actions/upload-artifact@v4
         with:
-          path: App/build/outputs/apk/release/GeckoTVBrowser.apk
+          name: GeckoTVBrowser.apk
+          path: App/build/outputs/apk/release/App-release-unsigned.apk
 
       - name: Create Release
         id: create_release
