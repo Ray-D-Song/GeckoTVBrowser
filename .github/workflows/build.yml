@@ -24,22 +24,22 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
-      - name: Give gradlew permission
-        run: chmod +x ./gradlew
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: current
+          arguments: assembleRelease
 
-      - name: Build with Gradle
-        run: ./gradlew build --stacktrace --info
-
-      - name: Decode keystore
-        run: |
-          echo "${{ secrets.KEYSTORE }}" | base64 --decode > release-key.jks
+      - uses: r0adkll/sign-android-release@v1
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.KEYSTORE }}
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Rename outputs
-        run: mv App/build/outputs/apk/release/App-release-unsigned.apk unsigned.apk
-
-      - name: Sign App
-        run: |
-          echo "${{ secrets.KEY_PASSWORD }}" | apksigner sign --ks release-key.jks --ks-key-alias ${{ secrets.KEY_ALIAS }} --ks-pass pass:$(cat -) --out GeckoTVBrowser.apk unsigned.apk
+        run: mv ${{steps.sign_app.outputs.signedReleaseFile}} GeckoTVBrowser.apk
 
       - name: Create Release
         id: create_release
