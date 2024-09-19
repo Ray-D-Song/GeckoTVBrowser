@@ -35,11 +35,11 @@ jobs:
           echo "${{ secrets.KEYSTORE }}" | base64 --decode > release-key.jks
 
       - name: Rename outputs
-        run: mv App/build/outputs/apk/release/App-release-unsigned.apk GeckoTVBrowser.apk
+        run: mv App/build/outputs/apk/release/App-release-unsigned.apk unsigned.apk
 
       - name: Sign App
         run: |
-          echo "${{ secrets.KEY_PASSWORD }}" | jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 -keystore release-key.jks -storepass "$(cat -)" GeckoTVBrowser.apk ${{ secrets.KEY_ALIAS }}
+          echo "${{ secrets.KEY_PASSWORD }}" | apksigner sign --ks release-key.jks --ks-key-alias ${{ secrets.KEY_ALIAS }} --ks-pass pass:$(cat -) --out GeckoTVBrowser.apk unsigned.apk
 
       - name: Create Release
         id: create_release
