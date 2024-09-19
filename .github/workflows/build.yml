@@ -24,6 +24,9 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
+      - name: Give gradlew permission
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: ./gradlew build
 
